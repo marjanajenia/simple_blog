@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/permissioncreate', [PermissionController::class, 'create'])->name('permission.create');
+    Route::get('/permissionlist', [PermissionController::class, 'permissionList'])->name('permission.list');
+    Route::post('/permissionstore', [PermissionController::class, 'permissionstore'])->name('permission.store');
 });
 
 require __DIR__.'/auth.php';
