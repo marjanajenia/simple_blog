@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/permissioncreate', [PermissionController::class, 'create'])->name('permission.create');
     Route::get('/permissionlist', [PermissionController::class, 'permissionList'])->name('permission.list');
     Route::post('/permissionstore', [PermissionController::class, 'permissionstore'])->name('permission.store');
+
+    Route::get('/rolecreate', [RoleController::class, 'roleCreate'])->name('role.create');
+    Route::post('/rolestore', [RoleController::class, 'roleStore'])->name('role.store');
+    Route::get('/roleList', [RoleController::class, 'roleList'])->name('role.list');
 });
 
 require __DIR__.'/auth.php';
